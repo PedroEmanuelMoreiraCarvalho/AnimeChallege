@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import react, { useEffect, useState } from 'react';
+import animedb from './animedb';
+import AnimeRow from './components/Anime-Row'
 
-function App() {
+
+export default () => {
+  const [animesData, setAnimeData] = useState([]);
+
+  useEffect(()=>{
+    const load = async() =>{
+      let dbanimes = await animedb.getHomeList();
+      setAnimeData(dbanimes);
+    }
+    load();
+  }, []);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='page'>
+      <section className='anime-lists'>
+        {animesData.map((item, key)=>(
+          <AnimeRow key={key} title={item.title} items={item.items}/>
+        ))}
+      </section>
     </div>
   );
 }
-
-export default App;
