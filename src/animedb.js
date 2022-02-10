@@ -26,4 +26,12 @@ export default {
             },
         ]
     },
+	getAnime: async (animeid) => {
+		let item = await basicFeth(`/${animeid}`);
+		return item;
+	},
+    getRandomAnime: async () => {
+		let item = await basicFeth(`/random/anime`);
+		return item;
+	}
 }

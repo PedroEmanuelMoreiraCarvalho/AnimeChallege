@@ -6,9 +6,12 @@ import AnimeRow from './components/Anime-Row'
 
 export default () => {
   const [animesData, setAnimeData] = useState([]);
+  const [animesRand, setAnimeRand] = useState();
 
   useEffect(()=>{
     const load = async() =>{
+      let randAnime = await animedb.getRandomAnime();
+      setAnimeRand(randAnime);
       let dbanimes = await animedb.getHomeList();
       setAnimeData(dbanimes);
     }
@@ -18,9 +21,7 @@ export default () => {
   return (
     <div className='page'>
       <section className='anime-lists'>
-        {animesData.map((item, key)=>(
-          <AnimeRow key={key} title={item.title} items={item.items}/>
-        ))}
+        <AnimeRow title='animes' items={animesRand}/>
       </section>
     </div>
   );
