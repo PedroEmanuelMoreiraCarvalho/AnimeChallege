@@ -1,6 +1,5 @@
 .animeViewer{
     width: 110px;
-    height: 200px;
     background-color: white;
     border-radius: 5px;
     transform: scale(1);
@@ -15,6 +14,11 @@
     width: inherit;
     height: inherit;
     transform: scale(0.93);
+}
+.anime--canvas--vertical{
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to bottom, transparent 60%, #111 98%);
 }
 .anime--title, .anime--genres{
     margin-left: 5px;

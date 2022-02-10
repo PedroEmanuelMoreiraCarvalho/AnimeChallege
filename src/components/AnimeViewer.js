@@ -4,9 +4,8 @@ import './AnimeViewer.css';
 export default ({items}) => {
     let genres = [];
     if(items){
-        console.log(items.data.genres[0].name);
         for(let i in items.data.genres){
-            genres.push(items.data.genres[i].name);
+            if(items.data.genres[i].name) genres.push(items.data.genres[i].name);
         }
     }
     return(
@@ -16,11 +15,13 @@ export default ({items}) => {
                 backgroundPosition: 'center',
                 backgroundImage: `url(${(items)&&items.data.images.jpg.image_url})`
             }}> 
-                <div className='anime--title'>
-                    {(items) && items.data.title}
-                </div>
-                <div className='anime--genres'>
-                    Gêneros: {(items) && (genres) && genres.join(', ')}
+                <div className='anime--canvas--vertical'>
+                    <div className='anime--title'>
+                        {(items) && items.data.title}
+                    </div>
+                    <div className='anime--genres'>
+                        {genres.length ? `Gêneros: ${(items) && genres.join(', ')}` : ` `}
+                    </div>
                 </div>
             </div>
         </div>
