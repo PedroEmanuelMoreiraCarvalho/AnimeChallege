@@ -1,5 +1,10 @@
 .animeViewer{
+    margin-inline-start: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
     width: 110px;
+    height: 100%;
     background-color: white;
     border-radius: 5px;
     transform: scale(1);
@@ -16,6 +21,7 @@
     transform: scale(0.93);
 }
 .anime--canvas--vertical{
+    position: absolute;
     width: inherit;
     height: inherit;
     background: linear-gradient(to bottom, transparent 60%, #111 98%);
@@ -27,7 +33,8 @@
     font-weight: bold;
 }
 .anime--genres{
+    position: absolute;
     font-weight: bold;
-    margin-top: 130px;
+    bottom: 0;
     max-height: inherit;
 }
