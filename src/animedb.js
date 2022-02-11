@@ -3,6 +3,7 @@ const API_ROOT = 'https://api.jikan.moe/v4';
 const basicFeth = async (endpoint) => {
     const req = await fetch(`${API_ROOT}${endpoint}`);
     const json = await req.json();
+    setTimeout(() => {}, 500);
     return json;
 }
 

@@ -24,6 +24,26 @@ export default ({items}) => {
                     </div>
                 </div>
             </div>
+            <div className='animeViewer--collapse'>
+                <div className='animeViewer--collapse--description'>
+                    <h3>
+                        {(items) && items.data.title_synonyms[0] ? items.data.title_synonyms[0] : items.data.title}
+                        <br/>
+                    </h3>
+                    <h3>
+                        {(items) && `Episódios: ${items.data.episodes}`}
+                    </h3>
+                    <h3>
+                        {(items) && items.data.year ? `Ano: ${items.data.year}` : ' '}
+                    </h3>
+                    <h3>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </h3>
+                </div>
+                <div className='animeViewer--collapse--avaliation'>
+                    {(items) && `Score: ${items.data.score}`}
+                </div>
+            </div>
         </div>
     )
 }

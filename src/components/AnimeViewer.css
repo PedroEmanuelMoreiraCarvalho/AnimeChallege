@@ -3,7 +3,7 @@
     margin-bottom: 20px;
     position: relative;
     display: inline-block;
-    width: 110px;
+    width: 170px;
     height: 100%;
     background-color: white;
     border-radius: 5px;
@@ -11,14 +11,19 @@
     transition: all ease 0.2s;
 }
 .animeViewer:hover{
+    z-index: 1;
     transform: scale(1.1);
     cursor: pointer;
 }
+
 .anime--canvas{
     display: inline-block;
     width: inherit;
     height: inherit;
     transform: scale(0.93);
+}
+.anime--canvas:hover > .animeViewer{
+    z-index: 1;
 }
 .anime--canvas--vertical{
     position: absolute;
@@ -28,7 +33,7 @@
 }
 .anime--title, .anime--genres{
     margin-left: 5px;
-    font-size: 12px;
+    font-size: 15px;
     text-shadow: 0 0 2.5px #111;
     font-weight: bold;
 }
@@ -37,4 +42,35 @@
     font-weight: bold;
     bottom: 0;
     max-height: inherit;
+}
+.animeViewer--collapse{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(to right, transparent 0%, #fff 8%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: all ease-out 0.2s;
+}
+.animeViewer:hover > .animeViewer--collapse{
+    opacity: 1;
+    margin-left: 80px;
+}
+.animeViewer--collapse--description, .animeViewer--collapse--avaliation{
+    position: absolute;
+    margin-left: 25px;
+    font-weight: bold;
+}
+.animeViewer--collapse--description{
+    font-size: 10px;
+    color: #111;
+}
+.animeViewer--collapse--avaliation{
+    bottom: 0;
+    font-size: 15px;
+    color: rgb(9, 255, 0);
 }

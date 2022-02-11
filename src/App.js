@@ -14,14 +14,14 @@ export default () => {
       let numberOfAnimes = 28;
       let randAnime = [];
 
+      let recomendations = await animedb.getRecomendedAnimes(7);
+      setAnimesRecomendation(recomendations);
+
       for(let i=0;i<numberOfAnimes;i++){ 
         let animeR = await animedb.getRandomAnime();
         randAnime.push(animeR);
       }
       setAnimeRand(randAnime);
-
-      let recomendations = await animedb.getRecomendedAnimes(7);
-      setAnimesRecomendation(recomendations);
 
       let dbanimes = await animedb.getHomeList();
       setAnimeData(dbanimes);
@@ -30,10 +30,12 @@ export default () => {
   }, []);
   return (
     <div className='page'>
-      <section className='anime-lists'>
-        <AnimeRow title='Recomendados' items={animesRecomendation}/>
-        <AnimeRow title='Animes' items={animesRand}/>
-      </section>
+      <main>
+        <section className='anime-lists'>
+          <AnimeRow title='Recomendados' items={animesRecomendation}/>
+          <AnimeRow title='Animes' items={animesRand}/>
+        </section>
+      </main>
     </div>
   );
 }
