@@ -3,7 +3,7 @@ import './AnimeViewer.css';
 
 export default ({items}) => {
     let genres = [];
-    if(items){
+    if(items && items.data.genres){
         for(let i in items.data.genres){
             if(items.data.genres[i].name) genres.push(items.data.genres[i].name);
         }

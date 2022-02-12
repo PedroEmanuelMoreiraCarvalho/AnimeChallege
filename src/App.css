@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 body {
+  overflow-x: hidden;
   background-color: rgb(61, 113, 209);
   color: #fff;
   margin: 0;
